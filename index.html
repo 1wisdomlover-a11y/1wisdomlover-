@@ -46,6 +46,13 @@
     border:2px solid var(--ink); background:#fff; padding:6px 18px; border-radius:20px;
   }
   .langbar button.active{ background:var(--ink); color:#fff; }
+  .langbar button{ transition:transform .12s, box-shadow .12s; }
+  .langbar button:hover{ transform:translateY(-3px) rotate(-3deg); box-shadow:3px 3px 0 var(--ink); }
+  .langbar button:active{ transform:translateY(0) rotate(0); box-shadow:none; }
+  @media (prefers-reduced-motion:reduce){
+    .chip:hover, .chip:hover .dot{ animation:none; }
+    .langbar button:hover{ transform:none; }
+  }
 
   /* ===== HERO ===== */
   header.hero{ text-align:center; padding:50px 10px 10px; position:relative; }
@@ -90,12 +97,23 @@
   .chip{
     display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px;
     background:#fff; border:2px solid var(--ink); border-radius:20px; padding:9px 18px;
+    transform:rotate(var(--r,0deg)); cursor:pointer; transition:box-shadow .15s;
   }
-  .chip:nth-child(1){ transform:rotate(-2deg); }
-  .chip:nth-child(2){ transform:rotate(1.5deg); }
-  .chip:nth-child(3){ transform:rotate(-1deg); }
-  .chip:nth-child(4){ transform:rotate(2deg); }
-  .chip:nth-child(5){ transform:rotate(-1.5deg); }
+  .chip:hover{ animation:chip-wiggle .55s ease-in-out forwards; box-shadow:3px 3px 0 var(--ink); }
+  .chip:hover .dot{ animation:dot-pop .55s ease-in-out; }
+  @keyframes chip-wiggle{
+    0%  { transform:rotate(var(--r,0deg)) scale(1); }
+    25% { transform:rotate(calc(var(--r,0deg) - 6deg)) scale(1.1); }
+    50% { transform:rotate(calc(var(--r,0deg) + 5deg)) scale(1.1); }
+    75% { transform:rotate(calc(var(--r,0deg) - 2deg)) scale(1.07); }
+    100%{ transform:rotate(var(--r,0deg)) scale(1.06); }
+  }
+  @keyframes dot-pop{ 0%,100%{ transform:scale(1); } 40%{ transform:scale(1.9); } 70%{ transform:scale(0.8); } }
+  .chip:nth-child(1){ --r:-2deg; }
+  .chip:nth-child(2){ --r:1.5deg; }
+  .chip:nth-child(3){ --r:-1deg; }
+  .chip:nth-child(4){ --r:2deg; }
+  .chip:nth-child(5){ --r:-1.5deg; }
   .chip.placeholder{
     background:repeating-linear-gradient(45deg,#ffd400,#ffd400 8px,#000 8px,#000 16px);
     color:#000; font-family:'VT323',monospace; font-size:15px;
