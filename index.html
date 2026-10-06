@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ניר פילוסוף — קורות חיים (גרסת שנות ה-90)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rammetto+One&family=Comic+Neue:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#241a00;
+    --c1:#ff2d55;
+    --c2:#ff9500;
+    --c3:#2ecc71;
+    --c4:#5865f2;
+    --c5:#00c2d1;
+    --c6:#b445ff;
+    --gold:#8a5a00;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:underline;}
+
+  /* marquee ticker — thin 90s-web nod, kept minimal */
+  .marquee{
+    background:#000; color:#39ff14; font-family:'VT323', monospace;
+    font-size:19px; letter-spacing:1px; overflow:hidden; white-space:nowrap;
+    padding:6px 0;
+  }
+  .marquee span{ display:inline-block; padding-inline-end:100%; animation:scroll-rtl 18s linear infinite; }
+  @keyframes scroll-rtl{ from{ transform:translateX(0);} to{ transform:translateX(-100%);} }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 24px 80px; position:relative; }
+
+  .langbar{ display:flex; justify-content:center; gap:10px; padding:22px 0 0; }
+  .langbar button{
+    font-family:'Comic Neue', cursive; font-weight:700; font-size:14px; cursor:pointer;
+    border:2px solid var(--ink); background:#fff; padding:6px 18px; border-radius:20px;
+  }
+  .langbar button.active{ background:var(--ink); color:#fff; }
+
+  /* ===== HERO ===== */
+  header.hero{ text-align:center; padding:50px 10px 10px; position:relative; }
+
+  .sticker{ position:absolute; font-size:34px; }
+  .sticker.s1{ top:6px; inset-inline-start:6px; transform:rotate(-18deg); }
+  .sticker.s2{ top:20px; inset-inline-end:10px; transform:rotate(14deg); }
+
+  .rainbow-name{
+    font-family:'Luckiest Guy', cursive;
+    font-size:72px; margin:0; letter-spacing:2px;
+    transform:rotate(-2deg); display:inline-block;
+  }
+  .rainbow-name span{ text-shadow:3px 3px 0 rgba(0,0,0,0.18); }
+
+  .role-banner{
+    font-family:'Luckiest Guy', cursive;
+    font-size:26px; color:#8fd8ff; letter-spacing:1px;
+    text-shadow:2px 2px 0 #1c3a7a, 3px 3px 0 #1c3a7a, 4px 4px 0 #1c3a7a, 5px 5px 0 rgba(0,0,0,0.15);
+    display:inline-block; margin-top:18px; transform:rotate(1.5deg);
+  }
+
+  .starburst{
+    position:relative; display:inline-block; margin:34px auto 6px; padding:20px 26px;
+    background:var(--c2); color:#fff; font-weight:700; font-family:'Comic Neue',cursive; font-size:15px;
+    clip-path:polygon(50% 0%, 61% 12%, 75% 2%, 79% 18%, 95% 12%, 90% 28%, 100% 38%,
+      85% 45%, 96% 58%, 80% 60%, 84% 76%, 68% 68%, 65% 85%, 52% 72%, 42% 88%, 36% 70%,
+      20% 80%, 22% 62%, 5% 62%, 16% 48%, 2% 36%, 20% 32%, 14% 16%, 32% 22%, 36% 4%, 46% 18%);
+    transform:rotate(-7deg);
+    box-shadow:3px 3px 0 rgba(0,0,0,0.2);
+  }
+
+  .tagline{ max-width:540px; margin:30px auto 0; font-size:17px; }
+
+  /* ===== CONTACT ===== */
+  .contact-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin:44px 0 0; }
+  .chip{
+    display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px;
+    background:#fff; border:2px solid var(--ink); border-radius:20px; padding:9px 18px;
+  }
+  .chip:nth-child(1){ transform:rotate(-2deg); }
+  .chip:nth-child(2){ transform:rotate(1.5deg); }
+  .chip:nth-child(3){ transform:rotate(-1deg); }
+  .chip:nth-child(4){ transform:rotate(2deg); }
+  .chip:nth-child(5){ transform:rotate(-1.5deg); }
+  .chip.placeholder{
+    background:repeating-linear-gradient(45deg,#ffd400,#ffd400 8px,#000 8px,#000 16px);
+    color:#000; font-family:'VT323',monospace; font-size:15px;
+  }
+  .chip .dot{width:8px;height:8px;border-radius:50%;flex:0 0 auto;}
+
+  /* ===== SECTIONS ===== */
+  section{ margin-top:90px; }
+  .sec-head{ text-align:center; margin-bottom:34px; }
+  .sec-head h2{
+    display:inline-block; font-family:'Rammetto One', cursive; font-size:28px; margin:0;
+    font-weight:400; letter-spacing:1px;
+    color:var(--gold);
+    text-shadow: 1px 1px 0 #fff2c4, 2px 2px 0 #d4a537, 3px 3px 0 #b8842a;
+  }
+
+  .summary-card{ max-width:640px; margin:0 auto; text-align:center; font-size:17px; }
+
+  .tl-item{ padding:0 0 34px; margin-bottom:34px; border-bottom:2px dotted #ddd; }
+  .tl-item:last-child{ border-bottom:none; }
+  .tl-item .tl-top{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; }
+  .tl-item h3{ margin:0; font-size:19px; font-family:'Comic Neue',cursive; font-weight:700; }
+  .tl-item .tl-date{
+    font-family:'Rammetto One', cursive; font-size:14px; color:var(--dot,var(--c1));
+  }
+  .tl-item .tl-org{ font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:1px; opacity:0.55; margin-top:4px; }
+  .tl-item ul{ margin:12px 0 0; padding-inline-start:20px; font-size:15px; }
+  .tl-item li{ margin-bottom:5px; }
+  .tl-item .badge-new{
+    font-family:'VT323',monospace; font-size:13px; background:var(--c1); color:#fff; padding:1px 8px;
+    border-radius:3px; margin-inline-start:8px; animation:blink 1.1s steps(2) infinite;
+  }
+  @keyframes blink{ 50%{opacity:0.25;} }
+
+  .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px 24px; }
+  .info-card{ text-align:center; }
+  .info-card h3{ margin:0 0 6px; font-size:16px; }
+  .info-card .meta{ font-family:'Rammetto One',cursive; font-size:13px; color:var(--gold); margin-bottom:8px; }
+  .info-card p{ margin:0; font-size:14px; opacity:0.8; }
+
+  .under-construction{
+    grid-column:1 / -1; text-align:center; font-family:'VT323',monospace; font-size:16px;
+    background:repeating-linear-gradient(45deg,#ffd400,#ffd400 12px,#111 12px,#111 24px);
+    color:#111; padding:12px; border-radius:6px; margin-top:6px;
+  }
+
+  .skills-wrap{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+  .skill{
+    padding:10px 20px; border-radius:20px; font-size:14px; font-weight:700; color:#fff;
+    box-shadow:2px 2px 0 rgba(0,0,0,0.2);
+  }
+  .skill:nth-child(odd){ transform:rotate(-2deg); }
+  .skill:nth-child(even){ transform:rotate(2deg); }
+  .skills-note{ text-align:center; font-size:12.5px; opacity:0.6; margin-top:18px; font-style:italic; }
+
+  .counter-box{ display:flex; justify-content:center; margin-top:60px; }
+  .counter-box .lcd{
+    background:#000; color:#39ff14; font-family:'VT323',monospace; font-size:19px;
+    padding:8px 16px; border-radius:4px; letter-spacing:2px;
+  }
+
+  footer{ text-align:center; margin-top:30px; font-family:'VT323',monospace; font-size:15px; opacity:0.7; padding:0 20px; }
+
+  hr.divider{ border:none; text-align:center; margin:0; height:1px; }
+
+  @media (max-width:560px){
+    .rainbow-name{ font-size:44px; }
+    .role-banner{ font-size:19px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="marquee"><span>★ פתוח להזדמנויות חדשות ★ נא לפנות באימייל או בטלפון ★ מודפס ב-256 צבעים ★ Best Viewed at 800x600 ★ נא לא לבזוק קפה על המקלדת ★</span></div>
+
+<div class="page">
+
+  <div class="langbar">
+    <button id="btn-he" class="active" onclick="setLang('he')">עברית</button>
+    <button id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+
+  <header class="hero">
+    <span class="sticker s1">♡</span>
+    <span class="sticker s2">✦</span>
+    <h1 id="t-name" class="rainbow-name"></h1><br>
+    <div id="t-role" class="role-banner"></div>
+    <div><span id="t-starburst" class="starburst"></span></div>
+    <div id="t-tagline" class="tagline"></div>
+  </header>
+
+  <div class="contact-row" id="contact-row"></div>
+
+  <section>
+    <div class="sec-head"><h2 id="h-summary"></h2></div>
+    <div class="summary-card" id="t-summary"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 id="h-exp"></h2></div>
+    <div id="exp-timeline"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 id="h-teach"></h2></div>
+    <div class="card-grid" id="teach-grid"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 id="h-edu"></h2></div>
+    <div class="card-grid" id="edu-grid"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 id="h-exhib"></h2></div>
+    <div class="card-grid" id="exhib-grid"></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2 id="h-skills"></h2></div>
+    <div class="skills-wrap" id="skills-wrap"></div>
+    <div class="skills-note" id="skills-note"></div>
+  </section>
+
+  <div class="counter-box"><span class="lcd">👁️ צפיות בעמוד: 001337</span></div>
+
+  <footer id="footer-note"></footer>
+</div>
+
+<script>
+const PALETTE = ["#ff2d55","#ff9500","#e6c200","#2ecc71","#00c2d1","#5865f2","#b445ff"];
+
+function rainbowize(text){
+  return text.split('').map((ch,i)=>{
+    if(ch === ' ') return ' ';
+    const color = PALETTE[i % PALETTE.length];
+    return `<span style="color:${color}">${ch}</span>`;
+  }).join('');
+}
+
+const DATA = {
+  he: {
+    dir:"rtl",
+    name:"ניר פילוסוף",
+    role:"ART TEAM LEAD",
+    starburst:"פתוח להזדמנויות חדשות!",
+    tagline:"מספר סיפורים באנימציה ובאיור — מהמסך הגדול ועד לסטודיו הקטן. מוביל צוותי אמנות, מעצב דמויות ובונה עולמות ויזואליים כבר יותר מעשור.",
+    contact:[
+      {label:"1wisdomlover@gmail.com", href:"mailto:1wisdomlover@gmail.com"},
+      {label:"972544966642+", href:"tel:+972544966642"},
+      {label:"Behance", href:"https://www.behance.net/nirphilosof"},
+      {label:"פורטפוליו (Flickr)", href:"https://www.flickr.com/photos/nir_philosof_art/"},
+      {label:"LinkedIn", href:"https://www.linkedin.com/in/nir-philosof-a5b9267a/"},
+    ],
+    h_summary:"תקציר",
+    summary:"אמן ומנהל צוות אמנות עם למעלה מ-10 שנות ניסיון בתעשיית האנימציה והאיור. מוביל את צוות האמנות בפאוטון מאז 2015, לצד קריירה עשירה כמאייר ואנימטור עבור לקוחות בינלאומיים (TED-Ed, PIL Studio, Time to Know), יצירה עצמאית שהוצגה בתערוכות בישראל, ותפקידי הוראה באנימציה. בוגר המחלקה לאמנויות המסך בבצלאל.",
+    h_exp:"ניסיון תעסוקתי",
+    exp:[
+      {org:"Powtoon", role:"ראש צוות אמנות (Art Team Lead)", date:"2015 — היום", isNew:true,
+       points:["מוביל את צוות האמנות בחברה — סטנדרטים ויזואליים, סטייל, וניהול אנשי אמנות ואנימציה."]},
+      {org:"פרילנס", role:"אנימטור ומעצב סרטוני תדמית ולימודיים", date:"2011 — 2017",
+       points:["עבודה עם לקוחות כמו Time to Know, סטודיו PIL, TED-Ed העולמית, ומטרופולין.","מאייר קבוע למגזין ליברל (2011–2017)."]},
+      {org:"“Common Room”", role:"חלק מאנסמבל אנימטורים בפרויקט משותף", date:"", points:[]},
+      {org:"הוצאת מודן", role:"מאייר בסדרת הספרים “משחקי בילוש” (מיכאל אבס)", date:"2013 — 2017",
+       points:["איור ארבעה ספרים בסדרה."]},
+      {org:"בית אביחי", role:"בימוי ואנימציה — “מדברים מהבטן”", date:"2014",
+       points:["פרויקט זיכרון."]},
+      {org:"Cinemon", role:"אנימטור בהפקת Young Marco Polo", date:"2013", points:[]},
+    ],
+    h_teach:"הוראה",
+    teach:[
+      {title:"מרצה, מחלקת תקש״ח, ויצ״ו חיפה", date:"2017 — היום", body:"קורס אנימציה ב-Adobe Animate, והדרכת קורס לוויית סרטי גמר באנימציה."},
+      {title:"חבר ועד", date:"2013 — 2018", body:"איגוד מקצועות האנימציה."},
+    ],
+    h_edu:"השכלה",
+    edu:[ {title:"B.F.A — בצלאל", date:"2008 — 2012", body:"המחלקה לאמנויות המסך."} ],
+    h_exhib:"תערוכות ופעילות",
+    exhib:[
+      {title:"“רושם ראשוני”", date:"2019", body:"תערוכה במסגרת שבוע איור."},
+      {title:"“שקרים קטנים גדולים”", date:"2018", body:"פסטיבל אאוטליין, ירושלים."},
+      {title:"“Art Monster”", date:"2015", body:"סדרת איורים “Google Street”."},
+      {title:"Animation for the Masses", date:"עד כ-1,500 עוקבים", body:"ניהול עמוד פייסבוק יומי לשיתוף סרטי אנימציה נבחרים."},
+    ],
+    h_skills:"כישורים",
+    skills:["איור דיגיטלי","אנימציה (Adobe Animate)","עיצוב דמויות","סטוריבורד","ניהול צוות אמנות","הנפשת סרטי תדמית ולימודיים","הוראה ומנטורינג"],
+    skills_note:"* רשימת הכישורים גובשה על סמך הניסיון המתואר בקורות החיים — מוזמן לעדכן ולדייק.",
+    footer:"נבנה עם ❤️, Ctrl+C/Ctrl+V ומעט גיל '90 · עדכון אחרון: אוגוסט 2026 · נשאר לעדכן פרויקטים מ-2019 ואילך אם יש.",
+  },
+  en: {
+    dir:"ltr",
+    name:"Nir Philosof",
+    role:"ART TEAM LEAD",
+    starburst:"Open to new opportunities!",
+    tagline:"Telling stories through animation and illustration — from the big screen to the small studio. Leading art teams, designing characters and building visual worlds for over a decade.",
+    contact:[
+      {label:"1wisdomlover@gmail.com", href:"mailto:1wisdomlover@gmail.com"},
+      {label:"+972 54 496 6642", href:"tel:+972544966642"},
+      {label:"Behance", href:"https://www.behance.net/nirphilosof"},
+      {label:"Portfolio (Flickr)", href:"https://www.flickr.com/photos/nir_philosof_art/"},
+      {label:"LinkedIn", href:"https://www.linkedin.com/in/nir-philosof-a5b9267a/"},
+    ],
+    h_summary:"Summary",
+    summary:"Artist and art team leader with 10+ years in animation and illustration. Leading the art team at Powtoon since 2015, alongside a rich career as an illustrator and animator for international clients (TED-Ed, PIL Studio, Time to Know), independent work exhibited across Israel, and teaching roles in animation. Graduate of the Screen-Based Arts department at Bezalel Academy.",
+    h_exp:"Experience",
+    exp:[
+      {org:"Powtoon", role:"Art Team Lead", date:"2015 — Present", isNew:true,
+       points:["Leading the company's art team — visual standards, style direction, and managing artists and animators."]},
+      {org:"Freelance", role:"Animator & Designer — corporate and educational videos", date:"2011 — 2017",
+       points:["Clients included Time to Know, PIL Studio, global TED-Ed, and Metropolin.","Regular illustrator for Liberal Magazine (2011–2017)."]},
+      {org:"“Common Room”", role:"Part of an animator ensemble on a collaborative project", date:"", points:[]},
+      {org:"Modan Publishing", role:"Illustrator — “Mystery Games” book series (Michael Avas)", date:"2013 — 2017",
+       points:["Illustrated four books in the series."]},
+      {org:"Beit Avichai", role:"Director & Animator — “Talking From the Stomach”", date:"2014",
+       points:["Memorial project."]},
+      {org:"Cinemon", role:"Animator — Young Marco Polo production", date:"2013", points:[]},
+    ],
+    h_teach:"Teaching",
+    teach:[
+      {title:"Lecturer, Communications Dept., WIZO Haifa Academic College", date:"2017 — Present", body:"Adobe Animate animation course, and mentoring for final animation film projects."},
+      {title:"Board Member", date:"2013 — 2018", body:"Israeli Animation Professionals Association."},
+    ],
+    h_edu:"Education",
+    edu:[ {title:"B.F.A — Bezalel Academy of Arts and Design", date:"2008 — 2012", body:"Screen-Based Arts Department."} ],
+    h_exhib:"Exhibitions & Activity",
+    exhib:[
+      {title:"“First Impression”", date:"2019", body:"Exhibition during Illustration Week."},
+      {title:"“Little Big Lies”", date:"2018", body:"Outline Festival, Jerusalem."},
+      {title:"“Art Monster”", date:"2015", body:"“Google Street” illustration series."},
+      {title:"Animation for the Masses", date:"~1,500 followers", body:"Ran a daily Facebook page sharing hand-picked animation films."},
+    ],
+    h_skills:"Skills",
+    skills:["Digital Illustration","Animation (Adobe Animate)","Character Design","Storyboarding","Art Team Leadership","Explainer & Educational Video Direction","Teaching & Mentoring"],
+    skills_note:"* Skills list was inferred from the experience described in the CV — feel free to refine.",
+    footer:"Built with ❤️, Ctrl+C/Ctrl+V and a dash of 90s nostalgia · Last updated: August 2026 · Still need any projects from 2019 onward.",
+  }
+};
+
+function el(tag, cls, text){ const e=document.createElement(tag); if(cls) e.className=cls; if(text!==undefined) e.textContent=text; return e; }
+
+function render(lang){
+  const d = DATA[lang];
+  document.documentElement.setAttribute('dir', d.dir);
+  document.documentElement.setAttribute('lang', lang);
+
+  document.getElementById('t-name').innerHTML = rainbowize(d.name);
+  document.getElementById('t-role').textContent = d.role;
+  document.getElementById('t-starburst').textContent = d.starburst;
+  document.getElementById('t-tagline').textContent = d.tagline;
+
+  const contactRow = document.getElementById('contact-row');
+  contactRow.innerHTML = '';
+  d.contact.forEach((c,i)=>{
+    const tag = c.href ? 'a' : 'div';
+    const chip = el(tag, 'chip' + (c.ph ? ' placeholder' : ''));
+    if(c.href){ chip.href = c.href; chip.target = '_blank'; chip.rel = 'noopener'; }
+    if(!c.ph){ const dot = el('span','dot'); dot.style.background = PALETTE[i % PALETTE.length]; chip.appendChild(dot); }
+    chip.appendChild(document.createTextNode(c.label));
+    contactRow.appendChild(chip);
+  });
+
+  document.getElementById('h-summary').textContent = d.h_summary;
+  document.getElementById('t-summary').textContent = d.summary;
+
+  document.getElementById('h-exp').textContent = d.h_exp;
+  const tl = document.getElementById('exp-timeline');
+  tl.innerHTML = '';
+  d.exp.forEach((item,i)=>{
+    const card = el('div','tl-item');
+    card.style.setProperty('--dot', PALETTE[i % PALETTE.length]);
+    const top = el('div','tl-top');
+    const h3 = el('h3', null, item.role);
+    if(item.isNew){ const b = el('span','badge-new', lang==='he' ? 'עכשיו!' : 'NOW!'); h3.appendChild(b); }
+    top.appendChild(h3);
+    if(item.date) top.appendChild(el('span','tl-date', item.date));
+    card.appendChild(top);
+    card.appendChild(el('div','tl-org', item.org));
+    if(item.points && item.points.length){
+      const ul = el('ul');
+      item.points.forEach(p=> ul.appendChild(el('li', null, p)));
+      card.appendChild(ul);
+    }
+    tl.appendChild(card);
+  });
+
+  document.getElementById('h-teach').textContent = d.h_teach;
+  const teachGrid = document.getElementById('teach-grid'); teachGrid.innerHTML='';
+  d.teach.forEach((t)=>{
+    const card = el('div','info-card');
+    card.appendChild(el('h3', null, t.title));
+    card.appendChild(el('div','meta', t.date));
+    card.appendChild(el('p', null, t.body));
+    teachGrid.appendChild(card);
+  });
+
+  document.getElementById('h-edu').textContent = d.h_edu;
+  const eduGrid = document.getElementById('edu-grid'); eduGrid.innerHTML='';
+  d.edu.forEach((t)=>{
+    const card = el('div','info-card');
+    card.appendChild(el('h3', null, t.title));
+    card.appendChild(el('div','meta', t.date));
+    card.appendChild(el('p', null, t.body));
+    eduGrid.appendChild(card);
+  });
+
+  document.getElementById('h-exhib').textContent = d.h_exhib;
+  const exhibGrid = document.getElementById('exhib-grid'); exhibGrid.innerHTML='';
+  d.exhib.forEach((t)=>{
+    const card = el('div','info-card');
+    card.appendChild(el('h3', null, t.title));
+    card.appendChild(el('div','meta', t.date));
+    card.appendChild(el('p', null, t.body));
+    exhibGrid.appendChild(card);
+  });
+  const uc = el('div','under-construction', lang==='he' ? '🚧 עוד תערוכות בקרוב... 🚧' : '🚧 More exhibitions coming soon... 🚧');
+  exhibGrid.appendChild(uc);
+
+  document.getElementById('h-skills').textContent = d.h_skills;
+  const skillsWrap = document.getElementById('skills-wrap'); skillsWrap.innerHTML='';
+  d.skills.forEach((s,i)=>{
+    const chip = el('span','skill', s);
+    chip.style.background = PALETTE[i % PALETTE.length];
+    skillsWrap.appendChild(chip);
+  });
+  document.getElementById('skills-note').textContent = d.skills_note;
+
+  document.getElementById('footer-note').textContent = d.footer;
+  document.getElementById('btn-he').classList.toggle('active', lang==='he');
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+}
+
+function setLang(lang){ render(lang); }
+render('he');
+</script>
+
+</body>
+</html>
